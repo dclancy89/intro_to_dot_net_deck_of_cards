@@ -72,9 +72,16 @@ namespace Deck_of_Cards
            }
         } // end reset
 
-        public void shuffle()
+        public Deck shuffle()
         {
-            // Having trouble with shuffle. need to come back to it.
+            Random rand = new Random();
+            for(int idx = cards.Count - 1; idx > 0; idx--) {
+                int randIdx = rand.Next(idx);
+                Card temp = cards[randIdx];
+                cards[randIdx] = cards[idx];
+                cards[idx] = temp;
+            }
+            return this;
         }
 
     }
